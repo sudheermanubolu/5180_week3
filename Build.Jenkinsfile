@@ -24,7 +24,7 @@ pipeline {
 // """
 //     }
 //   }
-    agent { label 'docker' }
+    agent { label 'dind' }
     stages {
         stage ('Git Checkout') {
             steps {
