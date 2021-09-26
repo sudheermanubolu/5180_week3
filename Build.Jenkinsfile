@@ -32,9 +32,10 @@ spec:
         }
         stage('Build') {
             steps {
+                dockerImage = docker.build imagename
                 container('dind') {
                     sh 'docker info'
-                    dockerImage = docker.build imagename
+                    
                     //sh "docker build -t sudheermanubolu/5180_week3:$BUILD_NUMBER ."
                     //sh "docker push sudheermanubolu/5180_week3:$BUILD_NUMBER"
                 }
