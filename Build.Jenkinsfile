@@ -8,6 +8,11 @@ pipeline {
                 }
             }
         }
+        stage('Install Docker') {
+            steps{
+                sh "curl -sSL https://get.docker.com/ | sh"
+            }
+        }
         stage('Build') {
             steps {
                 script{
