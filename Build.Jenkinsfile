@@ -23,7 +23,7 @@ pipeline {
         stage('image push') {
             steps{
                 script {
-                    docker.withRegistry( '', sudheermanubolu-dockerhub ) {
+                    docker.withRegistry( '', 'sudheermanubolu-dockerhub' ) {
                         dockerImage.push("$BUILD_NUMBER")
                         dockerImage.push('latest')
                     }
