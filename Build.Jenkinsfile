@@ -33,7 +33,6 @@ pipeline {
         stage('Remove Unused docker image') {
             steps{
                 sh "docker rmi sudheermanubolu/5180_week3:$BUILD_NUMBER"
-                sh "docker rmi sudheermanubolu/5180_week3:latest"
             }
         }
         stage('Download Kubectl') {
@@ -43,6 +42,10 @@ pipeline {
                 sh "./kubectl get pods"
             }
         }
-
+        stage('Deployment') {
+            steps{
+                sh "./kubectl apply -f deploy"
+            }
+        }
     }
 }
