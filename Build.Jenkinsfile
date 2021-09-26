@@ -1,5 +1,5 @@
 pipeline {
-    agent { lables 'dind' }
+    agent { lable 'dind' }
     stages {
         stage ('Checkout') {
             steps {
