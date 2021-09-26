@@ -1,29 +1,30 @@
 pipeline {
-      agent {
-    kubernetes {
-      yaml """
-apiVersion: v1
-kind: Pod
-metadata:
-  labels:
-    name: dind-agent
-spec:
-  containers:
-  - name: dind
-    image: docker:dind
-    imagePullPolicy: Always
-    tty: true
-    securityContext:
-      privileged: true
-    volumeMounts:
-      - name: docker-graph-storage
-        mountPath: /var/lib/docker
-  volumes:
-    - name: docker-graph-storage
-      emptyDir: {}
-"""
-    }
-  }
+//       agent {
+//     kubernetes {
+//       yaml """
+// apiVersion: v1
+// kind: Pod
+// metadata:
+//   labels:
+//     name: dind-agent
+// spec:
+//   containers:
+//   - name: dind
+//     image: docker:dind
+//     imagePullPolicy: Always
+//     tty: true
+//     securityContext:
+//       privileged: true
+//     volumeMounts:
+//       - name: docker-graph-storage
+//         mountPath: /var/lib/docker
+//   volumes:
+//     - name: docker-graph-storage
+//       emptyDir: {}
+// """
+//     }
+//   }
+    agent { label 'dind' }
     stages {
         stage ('Git Checkout') {
             steps {
@@ -32,9 +33,8 @@ spec:
         }
         stage('Build') {
             steps {
-                container('dind') {
-                    sh 'docker info'
-                    sh "docker build -t sudheermanubolu/5180_week3:$BUILD_NUMBER ."
+                script {
+                    dockerImage = docker.build sudheermanubolu/5180_week3
                 }
             }
         }
