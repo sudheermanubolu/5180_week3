@@ -1,7 +1,6 @@
 pipeline {
-    agent {
         agent { dockerfile true }
-        stages 'Checkout') {
+        stages ('Checkout') {
             steps {
                 script {
                     git clone https://github.com/sudheermanubolu/5180_week3.git
@@ -31,5 +30,5 @@ pipeline {
                 sh "docker rmi sudheermanubolu/5180_week3:latest"
             }
         }
-    }
+    
 }
