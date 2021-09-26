@@ -31,4 +31,5 @@ pipeline {
                 sh "docker rmi sudheermanubolu/5180_week3:latest"
             }
         }
+    }
 }
