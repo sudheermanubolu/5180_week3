@@ -34,7 +34,7 @@ spec:
             steps {
                 container('dind') {
                     sh 'docker info'
-                    sh "docker build -t sudheermanubolu/5180_week3:$BUILD_NUMBER"
+                    sh "docker build -t sudheermanubolu/5180_week3:$BUILD_NUMBER ."
                     //sh "docker push sudheermanubolu/5180_week3:$BUILD_NUMBER"
                 }
             }
