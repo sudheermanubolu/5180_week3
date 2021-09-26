@@ -1,10 +1,8 @@
 pipeline {
         agent { dockerfile true }
-        stages ('Checkout') {
+        stages ('Git Checkout') {
             steps {
-                script {
-                    git clone https://github.com/sudheermanubolu/5180_week3.git
-                }
+                git([url: 'https://github.com/sudheermanubolu/5180_week3.git', branch: 'main', credentialsId: '883617ec-4da5-4529-b906-fa3da9cb2ad7'])
             }
         }
         stage('Build') {
