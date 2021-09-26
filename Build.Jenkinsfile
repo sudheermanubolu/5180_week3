@@ -18,8 +18,6 @@ spec:
     volumeMounts:
       - name: docker-graph-storage
         mountPath: /var/lib/docker
-  - name: 
-  
   volumes:
     - name: docker-graph-storage
       emptyDir: {}
@@ -37,7 +35,6 @@ spec:
                 container('dind') {
                     sh 'docker info'
                     sh "docker build -t sudheermanubolu/5180_week3:$BUILD_NUMBER ."
-                    //sh "docker push sudheermanubolu/5180_week3:$BUILD_NUMBER"
                 }
             }
         }
