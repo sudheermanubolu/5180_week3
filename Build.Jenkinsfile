@@ -1,7 +1,7 @@
 pipeline {
     agent { lables 'dind' }
     stages {
-        stage 'Checkout') {
+        stage ('Checkout') {
             steps {
                 script {
                     git([url: 'https://github.com/sudheermanubolu/5180_week3.git', branch: 'main', credentialsId: 'ismailyenigul-github-user-token'])
