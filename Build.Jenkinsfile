@@ -1,4 +1,4 @@
-node('jenkins-slave') {
+node('dind') {
     
      stage('unit-tests') {
         sh(script: """
