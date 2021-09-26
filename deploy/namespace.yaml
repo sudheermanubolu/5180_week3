@@ -1,4 +1,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: 5180_week3_ns
+  name: 5180-week3-ns

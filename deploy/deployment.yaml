@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: 5180_week3_deploy
-  namespace: 5180_week3_ns
+  namespace: 5180-week3-ns
   labels:
     app: week3
 spec:
