@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 5180_week3_deploy
+  namespace: 5180_week3_ns
+  labels:
+    app: week3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: week3
+  template:
+    metadata:
+      labels:
+        app: week3
+    spec:
+      containers:
+      - name: week3
+        image: sudheermanubolu/5180_week3
+        ports:
+        - containerPort: 5000
