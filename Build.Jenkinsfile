@@ -34,7 +34,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    dockerImage = docker.build sudheermanubolu/5180_week3
+                    dockerImage = docker.build 'sudheermanubolu/5180_week3'
                 }
             }
         }
