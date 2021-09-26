@@ -1,6 +1,7 @@
 pipeline {
-        agent { dockerfile true }
-        stages ('Git Checkout') {
+    agent { dockerfile true }
+    stages {
+        stage ('Git Checkout') {
             steps {
                 git([url: 'https://github.com/sudheermanubolu/5180_week3.git', branch: 'main', credentialsId: '883617ec-4da5-4529-b906-fa3da9cb2ad7'])
             }
@@ -28,5 +29,5 @@ pipeline {
                 sh "docker rmi sudheermanubolu/5180_week3:latest"
             }
         }
-    
+    }
 }
