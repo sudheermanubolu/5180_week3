@@ -1,5 +1,29 @@
 pipeline {
-    agent any
+      agent {
+    kubernetes {
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    name: dind-agent
+spec:
+  containers:
+  - name: dind
+    image: docker:dind
+    imagePullPolicy: Always
+    tty: true
+    securityContext:
+      privileged: true
+    volumeMounts:
+      - name: docker-graph-storage
+        mountPath: /var/lib/docker
+  volumes:
+    - name: docker-graph-storage
+      emptyDir: {}
+"""
+    }
+  }
     stages {
         stage ('Git Checkout') {
             steps {
